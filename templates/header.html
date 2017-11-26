@@ -14,6 +14,7 @@
                 <li><a href="{% url 'account:user_logout' %}">LOGOUT</a></li>
                 {% else %}
                 <li><a href="{% url 'account:user_login' %}">LOGIN</a></li>
+                    <li><a href="{% url "social:begin" "qq" %}">QQ登录 <!-- 这个登录标识注意要满足QQ互联的要求 --></a></li>
                 {% endif %}
             </ul>
         </div>
