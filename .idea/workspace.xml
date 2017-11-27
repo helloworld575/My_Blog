@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa482abd-4759-43ee-9005-951eaff3fe24" name="Default" comment="">
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/account/password_reset.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/account/password_reset_complete.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/account/password_reset_confirm.html" />
@@ -24,6 +25,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_blog/urls.py" afterPath="$PROJECT_DIR$/my_blog/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/account/regisiter.html" afterPath="$PROJECT_DIR$/templates/account/regisiter.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_blog/settings.py" afterPath="$PROJECT_DIR$/my_blog/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_blog/urls.py" afterPath="$PROJECT_DIR$/my_blog/urls.py" />
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/header.html" afterPath="$PROJECT_DIR$/templates/header.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/registration/password_change_done.html" afterPath="$PROJECT_DIR$/templates/registration/password_change_done.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/registration/password_change_form.html" afterPath="$PROJECT_DIR$/templates/registration/password_change_form.html" />
@@ -61,16 +67,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my_blog/settings.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1271">
               <caret line="41" column="19" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="19" />
+=======
+            <state relative-caret-position="-3199">
+              <caret line="22" column="65" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="65" />
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my_blog/urls.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -79,10 +91,18 @@
               <folding>
                 <element signature="e#641#682#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="account_userprofile" pinned="false" current-in-tab="false">
+        <entry file="das://table:/2517ee6e/3331152d-04c4-4b41-84fe-e9f4dd77d64b/main.account_userprofile">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="password_reset_done.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/account/password_reset_done.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -98,6 +118,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="248">
               <caret line="8" column="59" lean-forward="false" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
+=======
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
               <folding />
             </state>
           </provider>
@@ -115,8 +142,25 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/env/Lib/site-packages/password_reset/views.py">
+=======
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my_blog/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding>
+                <element signature="e#641#682#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/account/views.py">
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -130,25 +174,56 @@
       <file leaf-file-name="password_reset_email.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/account/password_reset_email.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="93">
               <caret line="3" column="60" lean-forward="false" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="60" />
+=======
+            <state relative-caret-position="256">
+              <caret line="30" column="61" lean-forward="false" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/account/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="589">
               <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
               <folding />
+=======
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/account/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="recovery_email_subject.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/password_reset/recovery_email_subject.txt">
+=======
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="93">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/account/models.py">
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -194,17 +269,21 @@
         <option value="$PROJECT_DIR$/blog/templates/blog/titles.html" />
         <option value="$PROJECT_DIR$/blog/templates/blog/content.html" />
         <option value="$PROJECT_DIR$/blog/urls.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/blog/views.py" />
         <option value="$PROJECT_DIR$/templates/footer" />
         <option value="$PROJECT_DIR$/templates/footer.html" />
         <option value="$PROJECT_DIR$/templates/blog/titles.html" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/templates/base.html" />
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
         <option value="$PROJECT_DIR$/templates/account/login.html" />
         <option value="$PROJECT_DIR$/templates/account/logout.html" />
         <option value="$PROJECT_DIR$/account/models.py" />
         <option value="$PROJECT_DIR$/account/forms.py" />
         <option value="$PROJECT_DIR$/account/views.py" />
         <option value="$PROJECT_DIR$/account/admin.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/templates/account/regisiter.html" />
         <option value="$PROJECT_DIR$/templates/account/password_change_form.html" />
         <option value="$PROJECT_DIR$/templates/registration/password_change_form.html" />
@@ -221,6 +300,12 @@
         <option value="$PROJECT_DIR$/my_blog/settings.py" />
         <option value="$PROJECT_DIR$/templates/password_reset/recovery_email.txt" />
         <option value="$PROJECT_DIR$/my_blog/urls.py" />
+=======
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/my_blog/urls.py" />
+        <option value="$PROJECT_DIR$/templates/header.html" />
+        <option value="$PROJECT_DIR$/my_blog/settings.py" />
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
       </list>
     </option>
   </component>
@@ -539,6 +624,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/account/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -547,6 +633,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/account/regisiter.html">
+=======
+    <entry file="file://$PROJECT_DIR$/my_blog/wsgi.py">
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="12" column="57" lean-forward="true" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
@@ -641,6 +730,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/env/Lib/site-packages/django/urls/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -649,6 +739,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/env/Lib/site-packages/django/contrib/auth/urls.py">
+=======
+    <entry file="file://$PROJECT_DIR$/templates/blog/titles.html">
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="496">
           <caret line="17" column="93" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="93" />
@@ -727,7 +820,11 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/password_reset/recovery_form.html">
+=======
+    <entry file="file://$PROJECT_DIR$/templates/account/logout.html">
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -743,6 +840,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/password_reset/recovery_email.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -752,6 +850,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/my_blog/urls.py">
+=======
+    <entry file="das://table:/2517ee6e/3331152d-04c4-4b41-84fe-e9f4dd77d64b/main.account_userprofile">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/models.py">
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="651">
           <caret line="22" column="46" lean-forward="false" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
@@ -779,21 +887,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/env/Lib/site-packages/password_reset/urls.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="279">
           <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="34" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="256">
+          <caret line="30" column="61" lean-forward="false" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
+          <folding />
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/env/Lib/site-packages/password_reset/views.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="248">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+>>>>>>> 862673c508daf8581a50219ec5f6c762fb29ff64
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_blog/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#641#682#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_blog/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3199">
+          <caret line="22" column="65" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>

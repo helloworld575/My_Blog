@@ -61,6 +61,8 @@ TEMPLATES = [
         'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -134,3 +136,11 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = '1471585088@qq.com' # 帐号
 EMAIL_HOST_PASSWORD = 'wmrwbkbymgoojbjc'  # 密码
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# AUTHENTICATION_BACKENDS = (
+#     'social_core.backends.qq.QQOAuth2',
+# )
+# SOCIAL_AUTH_QQ_KEY = 'your qq app id,like some number,for examle 230402020' # QQ APP_ID
+# SOCIAL_AUTH_QQ_SECRET = 'you qq seckey ,combined by letter with number,for examle: f123bas324' # QQ SECRECT_KEY
+# SOCIAL_AUTH_QQ_USE_OPENID_AS_USERNAME = True
+
