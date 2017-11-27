@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'account',
+    'password_reset',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,10 @@ STATICFILES_DIRS=(
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
 LOGIN_REDIRECT_URL='/blog'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.qq.com'  # 如果是 163 改成 smtp.163.com
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '1471585088@qq.com' # 帐号
+EMAIL_HOST_PASSWORD = 'wmrwbkbymgoojbjc'  # 密码
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
