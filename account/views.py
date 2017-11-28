@@ -60,7 +60,7 @@ def myself(request):
 @login_required(login_url='/account/login/')
 def myself_edit(request):
     user=User.objects.get(username=request.user.username)
-    userprofile=UserProfile.objects.get(user=request.user)
+    userprofile=UserProfile.objects.get(user_id=request.user.id)
     userinfo=UserInfo.objects.get(user=request.user)
 
     if request.method=="POST":
@@ -95,3 +95,8 @@ def myself_edit(request):
         return render(request,"account/myself_edit.html",{"user_form":user_form,
                                                           "userprofile_form":userprofile_form,
                                                           "userinfo_form":userinfo_form})
+
+@login_required(login_url='/account/login/')
+def my_image(request):
+
+    return render(request, 'account/imagecrop.html',)
