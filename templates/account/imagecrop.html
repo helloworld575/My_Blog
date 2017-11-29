@@ -26,6 +26,7 @@
 </div>
 <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
 <script src="{% static 'js/cropbox-min.js' %}"></script>
+<script src="{% static 'js/csrf.js' %}"></script>
 <script type="text/javascript">
 
 $(window).load(function() {
@@ -52,8 +53,24 @@ $(window).load(function() {
 		//getImg();
 	});
 	$('#btnCrop').on('click', function(){
-		alert("图片上传喽");
+{#		alert("图片上传喽");#}
+        $.ajax({
+            url:'{% url "account:my_image" %}',
+            type:"POST",
+            data:{"img":img},
+            success:function(e){
+{#                location.href="{% url 'account:my_information' %}"#}
+                if(e=="1"){
+                    parent.location.reload()
+                }
+                else{
+                    alert("sorry, the picture can't been upload")
+                }
+            },
+
+        })
 	});
+
 	function getImg(){
 		img = cropper.getDataURL();
 		$('.cropped').html('');
@@ -74,6 +91,7 @@ $(window).load(function() {
 		cropper.zoomOut();
 	});
 });
+
 </script>
 </body>
 </html>
