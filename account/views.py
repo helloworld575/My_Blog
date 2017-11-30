@@ -111,10 +111,11 @@ def myself_edit(request):
                                               "company": userinfo.company,
                                               "profession": userinfo.profession,
                                               "address": userinfo.address,
-                                              "aboutme": userinfo.aboutme})
+                                              "aboutme": userinfo.aboutme,})
         return render(request, "account/myself_edit.html", {"user_form": user_form,
                                                             "userprofile_form": userprofile_form,
-                                                            "userinfo_form": userinfo_form})
+                                                            "userinfo_form": userinfo_form,
+                                                            "userinfo":userinfo})
 
 
 @login_required(login_url='/account/login/')
