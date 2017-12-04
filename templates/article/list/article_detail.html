@@ -8,7 +8,7 @@
     {% with total_likes=article.users_like.count users_like=article.users_like.all %}
         <div class="text-center">
             <h1>{{ article.title }}</h1>
-            <h6>文章所在栏目：{{ article.column }}</h6>
+            <h6>文章所在栏目:{{ article.column }}</h6>
         </div>
         <div class="text-center">
             <h4 class="list-group-item-text">作者：<a
