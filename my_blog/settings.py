@@ -129,7 +129,7 @@ STATICFILES_DIRS=(
 )
 # TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
-LOGIN_REDIRECT_URL='/blog'
+LOGIN_REDIRECT_URL='/home/'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.qq.com'  # 如果是 163 改成 smtp.163.com

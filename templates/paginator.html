@@ -1,9 +1,12 @@
 <div class="pagination">
     <span class="step-links">
+{#    若存在前一页#}
         {% if page.has_previous %}
+{#            调用内置前往后一页#}
             <a href="?page={{ page.previous_page_number }}">Previous</a>
         {% endif %}
     <span class="current">
+{#        当前页#}
         Page {{ page.number }} of {{ page.paginator.num_pages }}
     </span>
     {% if page.has_next %}

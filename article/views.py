@@ -75,15 +75,26 @@ def article_post(request):
 
 @login_required(login_url='/account/login')
 def article_list(request):
+    """
+    为控制article分页，主要部分在templates/paginator.html页面中
+    :param request:
+    :return:
+    """
     articles_list=ArticlePost.objects.filter(author=request.user)
+    # 创建分页对象，每页最大数量为2
     paginator=Paginator(articles_list,2)
+    # 获取当前page的值
     page=request.GET.get('page')
     try:
+        # page()得到指定页面（当前）内容，参数必须为大于等于一的整数
         current_page=paginator.page(page)
+        # object_list为Page对象的属性，得到该页所有对象列表
         articles=current_page.object_list
+    # 若不是整数
     except PageNotAnInteger:
         current_page=paginator.page(1)
         articles=current_page.object_list
+    # 若参数为空或没有page参数
     except EmptyPage:
         current_page=paginator.page(paginator.num_pages)
         articles=current_page.object_list

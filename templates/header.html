@@ -6,7 +6,9 @@
         </div>
         <div>
             <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' %}">网站首页</a></li>
                 <li><a href="{% url 'blog:blog_title' %}">博客</a></li>
+                <li><a href="{% url 'article:article_titles' %}">文章</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" style="margin-right: 10px;">
                 {% if user.is_authenticated %}
@@ -27,7 +29,8 @@
                     </div>
                 </li>
                 {% else %}
-                <li><a href="{% url 'account:user_login' %}">LOGIN</a></li>
+                <li><a href="{% url 'account:user_login' %}">登录</a></li>
+                    <li><a href="{% url 'account:user_register' %}">注册</a></li>
 {#                    <li><a href="{% url "social:begin" "qq" %}">QQ登录 <!-- 这个登录标识注意要满足QQ互联的要求 --></a></li>#}
                 {% endif %}
             </ul>

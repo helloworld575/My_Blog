@@ -29,6 +29,7 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile, UserInfo
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 
 # 注册功能实现
@@ -50,9 +51,9 @@ def register(request):
             new_profiles.save()
             # 保存new_user
             UserInfo.objects.create(user=new_user)
-            return HttpResponse("successfully")
+            return HttpResponseRedirect(reverse("account:user_login"))
         else:
-            return HttpResponse("sorry you can not regisiter")
+            return render(request, "account/regisiter.html", {"form": user_form, "profile": userprofile_form,'msg':"注册失败！"})
     # 若进入注册页面
     else:
         # 调用两个form完成form的显示

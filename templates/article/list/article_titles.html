@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}文章列表{% endblock %}
+
+{% block content %}
+<div class="row text-center">
+    <h1>别遗忘了你的梦想</h1>
+</div>
+<div class="container">
+{% for article in articles %}
+    <div class="list-group">
+    <a href="{{ article.get_url_path }}" class="list-group-item">
+        <h4 class="list-group-item-heading">{{ article.title }}</h4></a>
+        <p class="list-group-item-text">作者：<a href="{% url 'article:author_articles' article.author.username %}">{{ article.author.username }}</a></p>
+        <p class="list-group-item-text">概要：{{ article.body|slice:'70'|linebreaks }}</p>
+    </div>
+    <br/>
+{% endfor %}
+{% include "paginator.html" %}
+</div>
+{% endblock %}
