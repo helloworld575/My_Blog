@@ -144,4 +144,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # SOCIAL_AUTH_QQ_KEY = 'your qq app id,like some number,for examle 230402020' # QQ APP_ID
 # SOCIAL_AUTH_QQ_SECRET = 'you qq seckey ,combined by letter with number,for examle: f123bas324' # QQ SECRECT_KEY
 # SOCIAL_AUTH_QQ_USE_OPENID_AS_USERNAME = True
-
+# redis配置
+REDIS_HOST="localhost"
+REDIS_PORT=6379
+REDIS_DB=0

@@ -5,6 +5,7 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block content %}
+    <div class="col-md-9">
     {% with total_likes=article.users_like.count users_like=article.users_like.all %}
         <div class="text-center">
             <h1>{{ article.title }}</h1>
@@ -25,6 +26,7 @@
                         class="glyphicon glyphicon-thumbs-down"
                         id="unlike">{{ total_likes }} unlike{{ total_likes|pluralize }}</span></a>
             {% endif %}
+            <span style="margin-left: 20px;">{{ total_views }} view{{ total_views|pluralize }}</span>
         </div>
         <div id="test-editormd-view2">
             <textarea id="append-test" style="display:none;">{{ article.body }}</textarea>
@@ -38,6 +40,15 @@
             {% endfor %}
         </div>
     {% endwith %}
+    </div>
+    <div class="col-md-3">
+        <p class="text-center">最受欢迎文章</p>
+    <ol>
+        {% for article_rank in most_viewed %}
+            <li><a href="{{ article_rank.get_url_path }}">{{ article_rank.title }}</a></li>
+        {% endfor %}
+    </ol>
+    </div>
 {% endblock %}
 
 {% block javascript %}
