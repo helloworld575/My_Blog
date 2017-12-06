@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load article_tags %}
 {% load staticfiles %}
 
 {% block title %}{{ user.username }}的文章{% endblock %}
@@ -7,6 +7,7 @@
 {% block content %}
     <div class="row text-center">
         <h1>阅读，是最重要的学习方式</h1>
+
     </div>
     <div class="container">
         <div class="col-md-8">
@@ -25,6 +26,7 @@
         </div>
         <div class="col-md-4">
             <div>
+
                 {% if userinfo.photo %}
                     <img src="{{ userinfo.photo|striptags }}" class="img-circle" id="my_photo" name="user_face">
                 {% else %}
@@ -33,6 +35,9 @@
             </div>
             <div>
                 <p>{{ user.username }}</p>
+                {#        注意传参方式#}
+                <p>作者总共有{% author_total_articles user %}篇文章</p>
+
                 {% if userinfo %}
                     <p>{{ userinfo.company }}</p>
                     <p>{{ userinfo.aboutme }}</p>
