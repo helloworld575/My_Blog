@@ -1,0 +1,100 @@
+{% extends 'article/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}标签列表{% endblock %}
+
+{% block content %}
+    <div>
+        <p>添加文章标签</p>
+        <form class="form-horizontal" action="." method="post">{% csrf_token %}
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-md-2 text-right"><span>文章标签</span></div>
+                <div class="col-md-10 text-left">{{ article_tag_form.tag }}</div>
+            </div>
+            <div class="row">
+                <input type="submit" class="btn btn-primary btn-lg" style="margin-left: 200px;margin-top: 10px;"
+                       value="添加" id="add_tag">
+            </div>
+        </form>
+    </div>
+    <div>
+        <p>已有标签列表</p>
+        <table class="table table-hover">
+            <tr>
+                <td>序号</td>
+                <td>文章标签</td>
+                <td>操作</td>
+            </tr>
+            {% for article_tag in article_tags %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ article_tag.tag }}</td>
+                    <td>
+                        <a name="delete" href="javascript:" onclick="delete_tag(this,'{{ article_tag.id }}','{{ article_tag.tag }}')"> <i
+                                class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <p>你还未添加任何标签</p>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+{% block javascript %}
+<script>
+$(function () {
+    $("#add_tag").click(function () {
+        tag=$("#id_tag").val()
+        $.ajax({
+            url:"{% url 'article:article_tags' %}",
+            type:"POST",
+            data:{"tag":tag},
+            success:function (e) {
+                if(e=="1"){
+                    layer.msg("新标签添加成功");
+                    parent.location.reload();
+                }
+                else if(e=="2"){
+                    layer.msg("新标签添加失败");
+                }
+                else if(e=="3"){
+                    layer.msg("标签无效");
+                }
+            },
+            error:function () {
+                layer.msg("无法连接到服务器")
+            }
+        })
+    })
+});
+function delete_tag(the,id,tag) {
+    layer.open({
+        type:1,
+        skin:"layui-layer-rim",
+        title:"删除文章标签",
+        content:'<div class="text-center" style="margin-top:20px"><p>确定删除文章标签《'+tag+'》?</p></div>',
+        btn:["确定","取消"],
+        yes:function () {
+            $.ajax({
+                url:'{% url "article:del_tag" %}',
+                type:"POST",
+                data:{"tag_id":id},
+                success:function (e) {
+                    if(e=="1"){
+                        layer.msg("删除完成");
+                        parent.location.reload()
+                    }else{
+                        layer.msg("删除失败");
+                    }
+                },
+                error:function () {
+                    layer.msg("无法连接到服务器");
+                }
+            })
+        }
+    })
+}
+</script>
+{% endblock %}

@@ -9,6 +9,7 @@ import redis
 from django.conf import settings
 from .models import ArticleColumn,ArticlePost,Comment
 from .forms import CommentForm
+from django.db.models import Count
 r=redis.StrictRedis(host=settings.REDIS_HOST,port=settings.REDIS_PORT,db=settings.REDIS_DB)
 
 # 另一个文章列表
@@ -52,11 +53,6 @@ def read_article(request,id,slug):
     total_views=r.incr("article:{}:views".format(article.id))
     r.zincrby('article_ranking',article.id,1)
 
-    article_ranking = r.zrange('article_ranking',0,-1,desc=True)[:10]
-    article_ranking_ids=[int(id) for id in article_ranking]
-    most_viewed=list(ArticlePost.objects.filter(id__in=article_ranking_ids))
-    most_viewed.sort(key=lambda x:article_ranking_ids.index(x.id))
-
     if request.method=="POST":
         comment_form=CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -65,8 +61,11 @@ def read_article(request,id,slug):
             new_comment.save()
     else:
         comment_form=CommentForm
+    article_tags_ids=article.article_tag.values_list("id",flat=True)
+    similar_articles=ArticlePost.objects.filter(article_tag__in=article_tags_ids).exclude(id=article.id)
+    similar_articles=similar_articles.annotate(same_tags=Count("article_tag")).order_by('-same_tags','-created')[:4]
     return render(request,"article/list/article_detail.html",{"article":article,"total_views":total_views,
-                                                              "most_viewed":most_viewed,"comment_form":comment_form})
+                                                              "comment_form":comment_form,"similar_articles":similar_articles})
 
 
 @csrf_exempt

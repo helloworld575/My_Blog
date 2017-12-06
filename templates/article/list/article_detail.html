@@ -1,81 +1,98 @@
 {% extends "base.html" %}
 
 {% load staticfiles %}
-
+{% load article_tags %}
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block content %}
     <div class="col-md-9">
-    {% with total_likes=article.users_like.count users_like=article.users_like.all %}
-        <div class="text-center">
-            <h1>{{ article.title }}</h1>
-            <h6>文章所在栏目:{{ article.column }}</h6>
-        </div>
-        <div class="text-center">
-            <h4 class="list-group-item-text">作者：<a
-                    href="{% url 'article:author_articles' article.author.username %}">{{ article.author.username }}</a>
-            </h4>
-        </div>
-        <div class="like_or_not text-center">
-            {% if not user in users_like %}
-                <a href="#" onclick="like_article({{ article.id }},'like')"><span
-                        class="glyphicon glyphicon-thumbs-up"
-                        id="like">{{ total_likes }} like{{ total_likes|pluralize }}</span></a>
-            {% else %}
-                <a href="#" onclick="like_article({{ article.id }},'unlike')"><span
-                        class="glyphicon glyphicon-thumbs-down"
-                        id="unlike">{{ total_likes }} unlike{{ total_likes|pluralize }}</span></a>
-            {% endif %}
-            <span style="margin-left: 20px;">{{ total_views }} view{{ total_views|pluralize }}</span>
-        </div>
-        <div id="test-editormd-view2">
-            <textarea id="append-test" style="display:none;">{{ article.body }}</textarea>
-        </div>
-        <div class="text-center">
-            <p><strong>点赞本文的读者有：</strong></p>
-            {% for user in article.users_like.all %}
-                <p>{{ user.username }}</p>
-            {% empty %}
-                <p>还没有人对此文表态</p>
-            {% endfor %}
-        </div>
-        <hr>
-        <div>
-            <h3><i class="fa fa-bullhorn"></i>本文有：{{ comments.count }}评论</h3>
-            {% for comment in article.comments.all %}
-                <div>
-                    <p><strong>{{ comment.commentator }}</strong>说：</p>
-                    <p style="margin-left: 40px;">{{ comment.body }}</p>
-                </div>
+        {% with total_likes=article.users_like.count users_like=article.users_like.all %}
+            <div class="text-center">
+                <h1>{{ article.title }}</h1>
+                <h6>文章所在栏目:{{ article.column }}</h6>
+            </div>
+            <div class="text-center">
+                <h4 class="list-group-item-text">作者：<a
+                        href="{% url 'article:author_articles' article.author.username %}">{{ article.author.username }}</a>
+                </h4>
+            </div>
+            <div class="like_or_not text-center">
+                {% if not user in users_like %}
+                    <a href="#" onclick="like_article({{ article.id }},'like')"><span
+                            class="glyphicon glyphicon-thumbs-up"
+                            id="like">{{ total_likes }} like{{ total_likes|pluralize }}</span></a>
+                {% else %}
+                    <a href="#" onclick="like_article({{ article.id }},'unlike')"><span
+                            class="glyphicon glyphicon-thumbs-down"
+                            id="unlike">{{ total_likes }} unlike{{ total_likes|pluralize }}</span></a>
+                {% endif %}
+                <span style="margin-left: 20px;">{{ total_views }} view{{ total_views|pluralize }}</span>
+            </div>
+            <p><span style="margin-right: 10px;"><strong>本文标签有：</strong></span>{{ article.article_tag.all | join:", " }}</p>
+            <div id="test-editormd-view2">
+                <textarea id="append-test" style="display:none;">{{ article.body }}</textarea>
+            </div>
+            <div class="text-center">
+                <p><strong>点赞本文的读者有：</strong></p>
+                {% for user in article.users_like.all %}
+                    <p>{{ user.username }}</p>
                 {% empty %}
-                <p>还没有评论哦</p>
-            {% endfor %}
-            <h3><i class="fa fa-send"></i>看文章，发评论，不要沉默</h3>
-            <form action="." method="post" class="form-horizontal" role="form">{% csrf_token %}
-                <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 control-label">评论人:</label>
-                    <div class="col-sm-10">{{ comment_form.commentator }}</div>
-                </div>
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">评论</label>
-                    <div class="col-sm-10">{{ comment_form.body }}</div>
-                </div>
-                <div class="form_group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <p><input type="submit" value="发评论" class="btn btn-primary"></p>
+                    <p>还没有人对此文表态</p>
+                {% endfor %}
+            </div>
+            <hr>
+            <div>
+                <h3><i class="glyphicon glyphicon-bullhorn"></i>本文有：{{ comments.count }}评论</h3>
+                {% for comment in article.comments.all %}
+                    <div>
+                        <p><strong>{{ comment.commentator }}</strong>说：</p>
+                        <p style="margin-left: 40px;">{{ comment.body }}</p>
                     </div>
-                </div>
-            </form>
-        </div>
-    {% endwith %}
+                {% empty %}
+                    <p>还没有评论哦</p>
+                {% endfor %}
+                <h3><i class="glyphicon glyphicon-send"></i>看文章，发评论，不要沉默</h3>
+                <form action="." method="post" class="form-horizontal" role="form">{% csrf_token %}
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-sm-2 control-label">评论人:</label>
+                        <div class="col-sm-10">{{ comment_form.commentator }}</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">评论</label>
+                        <div class="col-sm-10">{{ comment_form.body }}</div>
+                    </div>
+                    <div class="form_group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <p><input type="submit" value="发评论" class="btn btn-primary"></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        {% endwith %}
     </div>
     <div class="col-md-3">
-        <p class="text-center">最受欢迎文章</p>
-    <ol>
-        {% for article_rank in most_viewed %}
-            <li><a href="{{ article_rank.get_url_path }}">{{ article_rank.title }}</a></li>
-        {% endfor %}
-    </ol>
+        <h3 class="text-center">最受欢迎文章</h3>
+        {% popular_articles 5 %}
+
+        <hr>
+        <h3 class="text-center">最新文章</h3>
+        {% latest_article 4 %}
+        <h3 class="text-center">最多评论文章</h3>
+        {% comment_article 4 as articles %}
+{#    必须先将自定义标签所得到的对象赋值给一个变量，然后才可以遍历#}
+        <ul>
+            {% for article in articles %}
+            <li><a href="{{ article.get_url_path }}">{{ article.title }}</a></li>
+            {% endfor %}
+        </ul>
+        <h3 class="text-center">相似文章</h3>
+        <ul>
+            {% for article in similar_articles %}
+                <p><a href="{{ article.get_url_path }}">{{ article.title }}</a></p>
+                {% empty %}
+                <p>没有相似文章</p>
+            {% endfor %}
+        </ul>
     </div>
 {% endblock %}
 
@@ -90,6 +107,7 @@
     <script src="{% static 'editor/editormd.js' %}"></script>
 
     <script src="{% static 'js/layer.js' %}"></script>
+
     <script>
         $(function () {
             var testEditormdView2 = editormd.markdownToHTML("test-editormd-view2", {
@@ -105,15 +123,15 @@
 
         function like_article(article_id, like) {
             $.ajax({
-                url:"{% url 'article:like_article' %}",
-                type:"POST",
-                data:{"id":article_id,"action":like},
+                url: "{% url 'article:like_article' %}",
+                type: "POST",
+                data: {"id": article_id, "action": like},
                 success: function (e) {
-                    if(e=="1"){
+                    if (e == "1") {
                         layer.msg("感谢点赞！");
                         window.location.reload();
                     }
-                    else{
+                    else {
                         layer.msg("点赞已取消");
                         window.location.reload();
                     }

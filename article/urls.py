@@ -14,4 +14,6 @@ urlpatterns=[
     url(r'^list-article-detail/(?P<id>\d+)/(?P<slug>[-\w]+)/$',list_views.read_article,name="list_article_detail"),
     url(r'^author-articles/(?P<username>[-\w]+)/$',list_views.article_titles,name="author_articles"),
     url(r'^like-article/$',list_views.like_article,name="like_article"),
+    url(r'^article-tags/$',views.article_tag,name="article_tags"),
+    url(r'^del-tag/$',views.delete_tag,name="del_tag"),
 ]
