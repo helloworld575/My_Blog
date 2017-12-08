@@ -1,6 +1,8 @@
 from django import forms
 from .models import ArticleColumn,ArticlePost,Comment,ArticleTag
 
+# 管理此应用全部model中的类对应的form
+
 class ArticleColumnForm(forms.ModelForm):
     class Meta:
         model=ArticleColumn

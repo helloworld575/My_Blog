@@ -23,5 +23,7 @@ urlpatterns = [
     url(r'^account/', include('account.urls', namespace='account', app_name='account')),
     # url(r'^pwd_reset/',include("password_reset.urls",namespace='pwd_reset',app_name='pwd_reset')),
     url(r'^article/', include('article.urls', namespace='article', app_name='article')),
-    url(r'^home/',TemplateView.as_view(template_name="home.html"),name='home')
+    url(r'^home/',TemplateView.as_view(template_name="home.html"),name='home'),
+    # 直接进入网站主页
+    url(r'^$',TemplateView.as_view(template_name="home.html"),name='home'),
 ]

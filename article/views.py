@@ -7,16 +7,20 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 from .forms import ArticleColumnForm,ArticlePostForm,ArticleTagForm
 from .models import ArticleColumn,ArticlePost,ArticleTag
+# 使用python标准json库
 import json
 
+# 文章栏目管理,可ajax,需登录
 @login_required(login_url='/account/login/')
 @csrf_exempt
 def article_column(request):
     if request.method=="GET":
+        # 获取文章所有栏目
         columns=ArticleColumn.objects.filter(user=request.user)
         column_form=ArticleColumnForm()
         return render(request,"article/column/article_column.html",{"columns":columns,"column_form":column_form})
     elif request.method=="POST":
+        # 提交文章栏目(新增)
         column_name=request.POST['column']
         columns=ArticleColumn.objects.filter(user_id=request.user.id,column=column_name)
         if columns:
@@ -25,6 +29,7 @@ def article_column(request):
             ArticleColumn.objects.create(user=request.user,column=column_name)
             return HttpResponse('1')
 
+# 编辑栏目名称,可ajax,需登录,且使用post方式
 @login_required(login_url='/account/login/')
 @csrf_exempt
 @require_POST
@@ -39,6 +44,7 @@ def rename_column(request):
     except:
         return HttpResponse("0")
 
+# 删除栏目,同上
 @login_required(login_url='/account/login/')
 @csrf_exempt
 @require_POST
@@ -51,10 +57,12 @@ def del_column(request):
     except:
         return HttpResponse("2")
 
+# 发布文章,ajax提交,必须登录
 @login_required(login_url='/account/login')
 @csrf_exempt
 def article_post(request):
     if request.method=="POST":
+        # 发布文章
         article_post_form=ArticlePostForm(request.POST)
         if article_post_form.is_valid():
             cd = article_post_form.cleaned_data
@@ -74,6 +82,7 @@ def article_post(request):
         else:
             return HttpResponse("3")
     else:
+        # 进入发布文章页面
         article_post_form=ArticlePostForm()
         article_column=request.user.article_column.all()
         article_tags=request.user.tag.all()
@@ -106,11 +115,13 @@ def article_list(request):
         articles=current_page.object_list
     return render(request, 'article/column/article_list.html',{"articles":articles,"page":current_page})
 
+# 查看文章
 @login_required(login_url='/account/login')
 def article_detail(request,article_id,slug):
     article=get_object_or_404(ArticlePost,id=article_id,slug=slug)
     return render(request,'article/column/article_detail.html',{"article":article})
 
+# 删除文章
 @login_required(login_url='/account/login')
 @csrf_exempt
 @require_POST
@@ -123,7 +134,7 @@ def del_article(request):
     except:
         return HttpResponse("2")
 
-
+# 编辑文章
 @login_required(login_url='/account/login')
 @csrf_exempt
 def edit_article(request,article_id):
@@ -145,6 +156,7 @@ def edit_article(request,article_id):
         except:
             return HttpResponse("2")
 
+# 新建文章tag
 @login_required(login_url='/account/login')
 @csrf_exempt
 def article_tag(request):
@@ -165,6 +177,7 @@ def article_tag(request):
         else:
             return HttpResponse("3")
 
+# 删除tag
 @login_required(login_url='/account/login')
 @csrf_exempt
 @require_POST
