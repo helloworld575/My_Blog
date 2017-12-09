@@ -5,12 +5,14 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from .forms import ImageForm
 from .models import Image
+from django.core.paginator import EmptyPage,PageNotAnInteger,Paginator
 
 @login_required(login_url="account/login")
 @csrf_exempt
 @require_POST
 def upload_image(request):
     form = ImageForm(data=request.POST)
+    print(request.POST['url'])
     if form.is_valid():
         try:
             new_item=form.save(commit=False)
@@ -24,8 +26,19 @@ def upload_image(request):
 
 @login_required(login_url='account/login')
 def list_images(request):
-    images=Image.objects.filter(user=request.user)
-    return render(request,'image/list_images.html',{"images":images})
+    image_list=Image.objects.filter(user=request.user)
+    paginator = Paginator(image_list,4)
+    page = request.GET.get('page')
+    try:
+        current_page = paginator.page(page)
+        images = current_page.object_list
+    except PageNotAnInteger:
+        current_page = paginator.page(1)
+        images = current_page.object_list
+    except EmptyPage:
+        current_page = paginator.page(paginator.num_pages)
+        images = current_page.object_list
+    return render(request,'image/list_images.html',{"images":images,"page":current_page})
 
 @login_required(login_url='account/login')
 @csrf_exempt
@@ -38,3 +51,18 @@ def del_image(request):
         return HttpResponse("1")
     except:
         return HttpResponse("2")
+
+def fall_images(request):
+    image_list = Image.objects.all()
+    paginator = Paginator(image_list,10)
+    page = request.GET.get('page')
+    try:
+        current_page = paginator.page(page)
+        images = current_page.object_list
+    except PageNotAnInteger:
+        current_page = paginator.page(1)
+        images = current_page.object_list
+    except EmptyPage:
+        current_page = paginator.page(paginator.num_pages)
+        images = current_page.object_list
+    return render(request,'image/fall_images.html',{"images":images,"page":current_page})
